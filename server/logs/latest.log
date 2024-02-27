@@ -1,0 +1,129 @@
+[19:40:04] [ServerMain/INFO]: Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
+[19:40:05] [ServerMain/INFO]: Loaded 7 recipes
+[19:40:06] [Server thread/INFO]: Starting minecraft server version 1.19.4
+[19:40:06] [Server thread/INFO]: Loading properties
+[19:40:06] [Server thread/INFO]: This server is running Paper version git-Paper-550 (MC: 1.19.4) (Implementing API version 1.19.4-R0.1-SNAPSHOT) (Git: 483368e on ver/1.19.4)
+[19:40:06] [Server thread/INFO]: Server Ping Player Sample Count: 12
+[19:40:06] [Server thread/INFO]: Using 4 threads for Netty based IO
+[19:40:06] [Server thread/WARN]: [!] The timings profiler has been enabled but has been scheduled for removal from Paper in the future.
+    We recommend installing the spark profiler as a replacement: https://spark.lucko.me/
+    For more information please visit: https://github.com/PaperMC/Paper/issues/8948
+[19:40:06] [Server thread/INFO]: [ChunkTaskScheduler] Chunk system is using 1 I/O threads, 3 worker threads, and gen parallelism of 3 threads
+[19:40:06] [Server thread/INFO]: Default game type: SURVIVAL
+[19:40:06] [Server thread/INFO]: Generating keypair
+[19:40:07] [Server thread/INFO]: Starting Minecraft server on *:25565
+[19:40:07] [Server thread/INFO]: Using default channel type
+[19:40:07] [Server thread/INFO]: Paper: Using Java compression from Velocity.
+[19:40:07] [Server thread/INFO]: Paper: Using Java cipher from Velocity.
+[19:40:08] [Server thread/INFO]: [StateVKAuth] Loading server plugin StateVKAuth v1.0-SNAPSHOT
+[19:40:08] [Server thread/INFO]: [StatesCore] Loading server plugin StatesCore v1.0-SNAPSHOT
+[19:40:08] [Server thread/INFO]: [LuckPerms] Loading server plugin LuckPerms v5.4.102
+[19:40:08] [Server thread/INFO]: Server permissions file permissions.yml is empty, ignoring it
+[19:40:08] [Server thread/INFO]: [LuckPerms] Enabling LuckPerms v5.4.102
+[19:40:08] [Server thread/INFO]:         __    
+[19:40:08] [Server thread/INFO]:   |    |__)   LuckPerms v5.4.102
+[19:40:08] [Server thread/INFO]:   |___ |      Running on Bukkit - Paper
+[19:40:08] [Server thread/INFO]: 
+[19:40:08] [Server thread/INFO]: [LuckPerms] Loading configuration...
+[19:40:09] [Server thread/INFO]: [LuckPerms] Loading storage provider... [H2]
+[19:40:09] [Server thread/INFO]: [LuckPerms] Loading internal permission managers...
+[19:40:09] [Server thread/INFO]: [LuckPerms] Performing initial data load...
+[19:40:09] [Server thread/INFO]: [LuckPerms] Successfully enabled. (took 1540ms)
+[19:40:09] [Server thread/WARN]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[19:40:09] [Server thread/WARN]: The server will make no attempt to authenticate usernames. Beware.
+[19:40:09] [Server thread/WARN]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[19:40:09] [Server thread/WARN]: To change this, set "online-mode" to "true" in the server.properties file.
+[19:40:09] [Server thread/INFO]: Preparing level "world"
+[19:40:10] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
+[19:40:10] [Server thread/INFO]: Time elapsed: 205 ms
+[19:40:10] [Server thread/INFO]: Preparing start region for dimension minecraft:the_nether
+[19:40:10] [Server thread/INFO]: Time elapsed: 55 ms
+[19:40:10] [Server thread/INFO]: Preparing start region for dimension minecraft:the_end
+[19:40:10] [Server thread/INFO]: Time elapsed: 41 ms
+[19:40:10] [Server thread/INFO]: [StateVKAuth] Enabling StateVKAuth v1.0-SNAPSHOT
+[19:40:11] [Server thread/INFO]: [org.hibernate.jpa.internal.util.LogHelper] HHH000204: Processing PersistenceUnitInfo [name: test_persistence]
+[19:40:11] [Server thread/INFO]: [org.hibernate.Version] HHH000412: Hibernate ORM core version [WORKING]
+[19:40:15] [Server thread/WARN]: [org.hibernate.orm.connections.pooling] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+[19:40:15] [Server thread/INFO]: [org.hibernate.orm.connections.pooling] HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/states]
+[19:40:15] [Server thread/INFO]: [org.hibernate.orm.connections.pooling] HHH10001001: Connection properties: {password=****, user=root}
+[19:40:15] [Server thread/INFO]: [org.hibernate.orm.connections.pooling] HHH10001003: Autocommit mode: false
+[19:40:15] [Server thread/INFO]: [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl] HHH000115: Hibernate connection pool size: 20 (min=1)
+[19:40:15] [Server thread/INFO]: [org.hibernate.dialect.Dialect] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[19:40:16] [Server thread/INFO]: [org.hibernate.orm.connections.access] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@3fd87fa6] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[19:40:16] [Server thread/INFO]: [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[19:40:16] [Server thread/INFO]: [StatesCore] Enabling StatesCore v1.0-SNAPSHOT
+[19:40:16] [Server thread/INFO]: [org.hibernate.jpa.internal.util.LogHelper] HHH000204: Processing PersistenceUnitInfo [name: persistence]
+[19:40:16] [Server thread/INFO]: [org.hibernate.Version] HHH000412: Hibernate ORM core version 4.0.2 - d104f19
+[19:40:18] [Server thread/WARN]: [org.hibernate.orm.connections.pooling] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+[19:40:18] [Server thread/INFO]: [org.hibernate.orm.connections.pooling] HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/states]
+[19:40:18] [Server thread/INFO]: [org.hibernate.orm.connections.pooling] HHH10001001: Connection properties: {password=****, user=root}
+[19:40:18] [Server thread/INFO]: [org.hibernate.orm.connections.pooling] HHH10001003: Autocommit mode: false
+[19:40:18] [Server thread/INFO]: [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl] HHH000115: Hibernate connection pool size: 20 (min=1)
+[19:40:18] [Server thread/INFO]: [org.hibernate.dialect.Dialect] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[19:40:19] [Server thread/INFO]: [org.hibernate.orm.connections.access] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@6a7ee1a6] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[19:40:19] [Server thread/INFO]: [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[19:40:19] [Server thread/INFO]: Enabled!
+[19:40:19] [Server thread/INFO]: Running delayed init tasks
+[19:40:19] [Server thread/INFO]: Done (12.903s)! For help, type "help"
+[19:40:19] [Server thread/INFO]: Timings Reset
+[19:40:47] [User Authenticator #0/INFO]: UUID of player calvian is d65984aa-b5e9-3db8-96e6-857f49f91e6f
+[19:40:47] [Server thread/INFO]: [StateVKAuth] [STDOUT] Hibernate: select vkuser0_.id as id1_1_, vkuser0_.confirmed as confirme2_1_, vkuser0_.nick as nick3_1_, vkuser0_.vkId as vkid4_1_ from downy_players vkuser0_ where vkuser0_.nick=?
+[19:40:47] [Server thread/WARN]: Nag author(s): '[calvian]' of 'StateVKAuth v1.0-SNAPSHOT' about their usage of System.out/err.print. Please use your plugin's logger instead (JavaPlugin#getLogger).
+[19:40:47] [Server thread/INFO]: [StatesCore] [STDOUT] Hibernate: select stateplaye0_.id as id1_2_, stateplaye0_.city as city3_2_, stateplaye0_.country as country4_2_, stateplaye0_.nick as nick2_2_ from downy_players stateplaye0_ where stateplaye0_.nick='calvian'
+[19:40:47] [Server thread/WARN]: Nag author(s): '[]' of 'StatesCore v1.0-SNAPSHOT' about their usage of System.out/err.print. Please use your plugin's logger instead (JavaPlugin#getLogger).
+[19:40:47] [Server thread/INFO]: calvian joined the game
+[19:40:47] [Server thread/INFO]: calvian[/127.0.0.1:57691] logged in with entity id 239 at ([world]-88.30000001192093, 69.0, -16.7611193254621)
+[19:40:54] [Server thread/INFO]: calvian issued server command: /vk add 123123
+[19:40:54] [Server thread/INFO]: [StateVKAuth] [STDOUT] Hibernate: select vkuser0_.id as id1_1_, vkuser0_.confirmed as confirme2_1_, vkuser0_.nick as nick3_1_, vkuser0_.vkId as vkid4_1_ from downy_players vkuser0_ where vkuser0_.nick=?
+[19:40:54] [Server thread/INFO]: [StateVKAuth] [STDOUT] Hibernate: select banneduser0_.id as id1_0_, banneduser0_.nick as nick2_0_, banneduser0_.vkId as vkid3_0_ from banned_users banneduser0_ where banneduser0_.vkId=?
+[19:40:54] [Server thread/INFO]: [StateVKAuth] [STDOUT] Hibernate: update downy_players set confirmed=?, nick=?, vkId=? where id=?
+[19:41:55] [Server thread/INFO]: calvian issued server command: /lp editor
+[19:42:01] [luckperms-command-executor/INFO]: [LP] Preparing a new editor session, please wait...
+[19:42:02] [luckperms-command-executor/INFO]: [LP] Click the link below to open the editor:
+[19:42:02] [luckperms-command-executor/INFO]: https://luckperms.net/editor/hdY3Flf6Cs
+[19:42:04] [Server thread/INFO]: Unknown command. Type "/help" for help.
+[19:42:04] [Server thread/INFO]: Unknown command. Type "/help" for help.
+[19:42:04] [Server thread/INFO]: Unknown command. Type "/help" for help.
+[19:42:04] [Server thread/INFO]: Unknown command. Type "/help" for help.
+[19:42:04] [Server thread/INFO]: Unknown command. Type "/help" for help.
+[19:42:04] [Server thread/INFO]: Unknown command. Type "/help" for help.
+[19:42:08] [Server thread/INFO]: Unknown command. Type "/help" for help.
+[19:42:08] [Server thread/INFO]: Unknown command. Type "/help" for help.
+[19:42:08] [Server thread/INFO]: Unknown command. Type "/help" for help.
+[19:42:08] [Server thread/INFO]: Unknown command. Type "/help" for help.
+[19:42:08] [Server thread/INFO]: Unknown command. Type "/help" for help.
+[19:42:08] [Server thread/INFO]: Unknown command. Type "/help" for help.
+[19:42:18] [Server thread/INFO]: Unknown command. Type "/help" for help.
+[19:42:23] [Server thread/INFO]: Stopping server
+[19:42:23] [Server thread/INFO]: [LuckPerms] Disabling LuckPerms v5.4.102
+[19:42:23] [Server thread/INFO]: [LuckPerms] Starting shutdown process...
+[19:42:23] [Server thread/INFO]: [LuckPerms] Closing storage...
+[19:42:23] [Server thread/INFO]: [LuckPerms] Goodbye!
+[19:42:23] [Server thread/INFO]: [StatesCore] Disabling StatesCore v1.0-SNAPSHOT
+[19:42:23] [Server thread/INFO]: [StateVKAuth] Disabling StateVKAuth v1.0-SNAPSHOT
+[19:42:23] [Server thread/INFO]: Saving players
+[19:42:23] [Server thread/INFO]: calvian lost connection: Server closed
+[19:42:24] [Server thread/INFO]: calvian left the game
+[19:42:24] [Server thread/INFO]: Saving worlds
+[19:42:24] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[19:42:24] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world'
+[19:42:24] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world'
+[19:42:24] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world'
+[19:42:26] [Server thread/INFO]: [ChunkHolderManager] Saved 1781 block chunks, 675 entity chunks, 0 poi chunks in world 'world' in 1,96s
+[19:42:26] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[19:42:26] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_nether]'/minecraft:the_nether
+[19:42:26] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_nether'
+[19:42:26] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_nether'
+[19:42:26] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_nether'
+[19:42:26] [Server thread/INFO]: [ChunkHolderManager] Saved 529 block chunks, 529 entity chunks, 0 poi chunks in world 'world_nether' in 0,60s
+[19:42:26] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[19:42:26] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_the_end]'/minecraft:the_end
+[19:42:26] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_the_end'
+[19:42:26] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_the_end'
+[19:42:26] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_the_end'
+[19:42:26] [Server thread/INFO]: [ChunkHolderManager] Saved 529 block chunks, 529 entity chunks, 0 poi chunks in world 'world_the_end' in 0,13s
+[19:42:26] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[19:42:26] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved
+[19:42:26] [Server thread/INFO]: Flushing Chunk IO
+[19:42:26] [Server thread/INFO]: Closing Thread Pool
+[19:42:26] [Server thread/INFO]: Closing Server
