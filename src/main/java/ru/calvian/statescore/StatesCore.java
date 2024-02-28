@@ -14,9 +14,11 @@ import java.util.Collections;
 import java.util.logging.Logger;
 
 
-@Getter
+
 public final class StatesCore extends JavaPlugin implements Listener {
+    @Getter
     private static StatesCore instance;
+    @Getter
     public boolean authenticate = false;
     @Getter
     private EntityManager entityManager;
