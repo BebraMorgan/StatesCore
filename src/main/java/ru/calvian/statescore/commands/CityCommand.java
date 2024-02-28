@@ -3,8 +3,11 @@ package ru.calvian.statescore.commands;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import ru.calvian.statescore.entities.City;
 import ru.calvian.statescore.entities.StatePlayer;
-import ru.calvian.statescore.events.city.CityInviteEvent;
+import ru.calvian.statescore.events.city.CityCreateEvent;
+import ru.calvian.statescore.events.city.CityDestroyEvent;
+import ru.calvian.statescore.repositories.CityRepository;
 import ru.calvian.statescore.repositories.StatePlayerRepository;
 
 public class CityCommand extends AbstractCommand {
@@ -12,19 +15,20 @@ public class CityCommand extends AbstractCommand {
         super("city");
     }
 
-    StatePlayerRepository repository = new StatePlayerRepository(new StatePlayer());
+    CityRepository cityRepository = new CityRepository();
+    StatePlayerRepository playerRepository = new StatePlayerRepository(new StatePlayer());
 
     @Override
     public void execute(CommandSender sender, String[] args) {
         if (!(sender instanceof Player)) return;
-        StatePlayer commandSender = repository.findByNick(sender.getName()).get(0);
+        Player player = ((Player) sender).getPlayer();
         if (args.length == 0) return;
         switch (args[0]) {
             case "create":
-                create();
+                create(player, args);
                 break;
             case "destroy":
-                destroy();
+                destroy(player, args);
                 break;
             case "bank":
                 bank();
@@ -42,16 +46,20 @@ public class CityCommand extends AbstractCommand {
                 alliance();
                 break;
         }
-        if (args[0].equals("invite")) {
-            invite(sender, commandSender, args);
-        }
+//        if (args[0].equals("invite")) {
+//            invite(sender, commandSender, args);
+//        }
     }
 
-    private void create() {
-
+    private void create(Player player, String[] args) {
+        if (args.length < 2) return;
+        Bukkit.getPluginManager().callEvent(new CityCreateEvent(args[1], player));
     }
 
-    private void destroy() {
+    private void destroy(Player player, String[] args) {
+        if (args.length < 2) return;
+        City city = cityRepository.findByName(args[1]).get(0);
+        Bukkit.getPluginManager().callEvent(new CityDestroyEvent(city, player));
 
     }
 
@@ -75,12 +83,12 @@ public class CityCommand extends AbstractCommand {
 
     }
 
-    private void invite(CommandSender sender, StatePlayer commandSender, String[] args) {
-        if (args.length == 2) return;
-        if (commandSender.getCity() == null) return;
-        StatePlayer player = repository.findByNick(args[1]).get(0);
-        if (player == null) return;
-        CityInviteEvent event = new CityInviteEvent(commandSender.getCity(), commandSender);
-        Bukkit.getPluginManager().callEvent(event);
-    }
+//    private void invite(CommandSender sender, StatePlayer commandSender, String[] args) {
+//        if (args.length == 2) return;
+//        if (commandSender.getCity() == null) return;
+//        StatePlayer player = repository.findByNick(args[1]).get(0);
+//        if (player == null) return;
+//        CityInviteEvent event = new CityInviteEvent(commandSender.getCity(), commandSender);
+//        Bukkit.getPluginManager().callEvent(event);
+//    }
 }

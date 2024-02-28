@@ -1,9 +1,13 @@
 package ru.calvian.statescore.commands;
 
+import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import ru.calvian.statescore.StatesCore;
+import ru.calvian.statescore.entities.City;
 import ru.calvian.statescore.entities.StatePlayer;
+import ru.calvian.statescore.events.stateplayer.PlayerCityJoinEvent;
+import ru.calvian.statescore.events.stateplayer.PlayerCityLeaveEvent;
+import ru.calvian.statescore.repositories.CityRepository;
 import ru.calvian.statescore.repositories.StatePlayerRepository;
 
 public class StatePLayerCommand extends AbstractCommand {
@@ -13,54 +17,35 @@ public class StatePLayerCommand extends AbstractCommand {
 
     private static final String DESCRIPTION = "usage: /player city <join/leave/decline>";
 
+    StatePlayerRepository playerRepository = new StatePlayerRepository(new StatePlayer());
+    CityRepository cityRepository = new CityRepository();
+
     @Override
-    public void execute(CommandSender sender, String[] args) {
-        if (!(sender instanceof Player)) return;
-        StatePlayerRepository repository = new StatePlayerRepository(new StatePlayer());
-        StatePlayer player = repository.findByNick(sender.getName()).get(0);
-        if (StatesCore.getInstance().authenticate && player.getVkId() == null) {
-            sender.sendMessage("без привязки вк нельзя вступить в город!");
-            return;
-        }
+    public void execute(CommandSender commandSender, String[] args) {
+        if (!(commandSender instanceof Player)) return;
+        StatePlayer sender = playerRepository.findByNick(commandSender.getName()).get(0);
         if (args.length < 1) {
-            sender.sendMessage(DESCRIPTION);
+            commandSender.sendMessage(DESCRIPTION);
             return;
         }
-
-        if (args[0].equals("join")) {
-            join(args, sender, player);
-        }
-        if (args[0].equals("decline")) {
-            decline(args, sender, player);
-        }
-
-        if (args[0].equals("leave")) {
-            leave(args[1], player);
+        switch (args[0]) {
+            case "join":
+                join(sender, args);
+                break;
+            case "leave":
+                leave(sender);
+                break;
         }
     }
 
-    private void decline(String[] args, CommandSender sender, StatePlayer player) {
-//        if (args.length < 2) return;
-//        player.getInvites().forEach(invite -> {
-//            if (((CityInvite) invite).getSender().getName().equals(args[1])) {
-//                invite.decline();
-//            }
-//        });
+    private void join(StatePlayer sender, String[] args) {
+        if (args.length < 2) return;
+        City city = cityRepository.findByName(args[2]).get(0);
+        if (city == null) return;
+        Bukkit.getPluginManager().callEvent(new PlayerCityJoinEvent(city, sender));
     }
 
-    private void join(String[] args, CommandSender sender, StatePlayer player) {
-//        if (args.length < 2) return;
-//        player.getInvites().forEach(invite -> {
-//            if (((CityInvite) invite).getSender().getName().equals(args[1])) {
-//                invite.claim();
-//            }
-//        });
-    }
-
-    private void leave(String city, StatePlayer player) {
-        if (player.getCity() == null) {
-            return;
-        }
-        player.setCity(null);
+    private void leave(StatePlayer sender) {
+        Bukkit.getPluginManager().callEvent(new PlayerCityLeaveEvent(sender));
     }
 }

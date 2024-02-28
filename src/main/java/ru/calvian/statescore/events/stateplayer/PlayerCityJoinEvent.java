@@ -22,7 +22,7 @@ public class PlayerCityJoinEvent extends Event {
         return HANDLERS;
     }
 
-    public PlayerCityJoinEvent(StatePlayer player, City city) {
+    public PlayerCityJoinEvent(City city, StatePlayer player) {
         this.player = player;
         this.city = city;
     }
