@@ -11,6 +11,7 @@ public class CityCommand extends AbstractCommand {
     public CityCommand() {
         super("city");
     }
+
     StatePlayerRepository repository = new StatePlayerRepository(new StatePlayer());
 
     @Override
@@ -19,13 +20,27 @@ public class CityCommand extends AbstractCommand {
         StatePlayer commandSender = repository.findByNick(sender.getName()).get(0);
         if (args.length == 0) return;
         switch (args[0]) {
-            case "create": create(); break;
-            case "destroy": destroy(); break;
-            case "bank": bank(); break;
-            case "name": name(); break;
-            case "resident": resident(); break;
-            case "mayor": mayor(); break;
-            case "alliance": alliance(); break;
+            case "create":
+                create();
+                break;
+            case "destroy":
+                destroy();
+                break;
+            case "bank":
+                bank();
+                break;
+            case "name":
+                name();
+                break;
+            case "resident":
+                resident();
+                break;
+            case "mayor":
+                mayor();
+                break;
+            case "alliance":
+                alliance();
+                break;
         }
         if (args[0].equals("invite")) {
             invite(sender, commandSender, args);
@@ -36,7 +51,7 @@ public class CityCommand extends AbstractCommand {
 
     }
 
-    private void  destroy() {
+    private void destroy() {
 
     }
 
