@@ -2,7 +2,7 @@ package ru.calvian.statescore.commands;
 
 import org.bukkit.command.CommandSender;
 
-public class StateCommand extends AbstractCommand{
+public class StateCommand extends AbstractCommand {
 
     public StateCommand() {
         super("state");
@@ -20,6 +20,7 @@ public class StateCommand extends AbstractCommand{
     private void leader() {
 
     }
+
     private void bank() {
 
     }

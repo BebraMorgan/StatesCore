@@ -2,27 +2,38 @@ package ru.calvian.statescore.events.city;
 
 
 import lombok.Getter;
+import org.bukkit.event.Cancellable;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 import org.jetbrains.annotations.NotNull;
 import ru.calvian.statescore.entities.City;
 import ru.calvian.statescore.entities.StatePlayer;
 
-public class CityInviteEvent extends Event {
+@Getter
+public class CityInviteEvent extends Event implements Cancellable {
 
-    @Getter
+    private static final HandlerList HANDLERS = new HandlerList();
     private final City sender;
     @Getter
     private final StatePlayer receiver;
 
-    private static final HandlerList HANDLERS = new HandlerList();
+    public CityInviteEvent(City sender, StatePlayer receiver) {
+        this.sender = sender;
+        this.receiver = receiver;
+    }
+
     @Override
     public @NotNull HandlerList getHandlers() {
         return HANDLERS;
     }
 
-    public CityInviteEvent(City sender, StatePlayer receiver) {
-        this.sender = sender;
-        this.receiver = receiver;
+    @Override
+    public boolean isCancelled() {
+        return false;
+    }
+
+    @Override
+    public void setCancelled(boolean b) {
+
     }
 }

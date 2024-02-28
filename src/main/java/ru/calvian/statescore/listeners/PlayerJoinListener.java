@@ -27,7 +27,7 @@ public class PlayerJoinListener implements Listener {
         } else {
             StatePlayer statePlayer = playerList.get(0);
             statePlayer.setNick(player.getName());
-            if(statePlayer.getRole() == null) {
+            if (statePlayer.getRole() == null) {
                 statePlayer.setRole(role);
             } else if (statePlayer.getRole() == role) {
                 statePlayer.setRole(role);

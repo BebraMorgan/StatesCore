@@ -2,7 +2,7 @@ package ru.calvian.statescore.commands;
 
 import org.bukkit.command.CommandSender;
 
-public class AllianceCommand extends AbstractCommand{
+public class AllianceCommand extends AbstractCommand {
     public AllianceCommand() {
         super("alliance");
     }

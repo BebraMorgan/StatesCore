@@ -1,9 +1,7 @@
 package ru.calvian.statescore.repositories;
 
-import org.checkerframework.checker.units.qual.C;
 import ru.calvian.statescore.StatesCore;
 import ru.calvian.statescore.entities.City;
-import ru.calvian.statescore.entities.dictionaries.DictPlayerRoles;
 
 import java.util.List;
 

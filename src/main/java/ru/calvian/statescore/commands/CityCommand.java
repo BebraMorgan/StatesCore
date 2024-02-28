@@ -6,17 +6,18 @@ import org.bukkit.entity.Player;
 import ru.calvian.statescore.entities.City;
 import ru.calvian.statescore.entities.StatePlayer;
 import ru.calvian.statescore.events.city.CityCreateEvent;
+import ru.calvian.statescore.events.city.CityDepositEvent;
 import ru.calvian.statescore.events.city.CityDestroyEvent;
+import ru.calvian.statescore.events.city.CityWithdrawEvent;
 import ru.calvian.statescore.repositories.CityRepository;
 import ru.calvian.statescore.repositories.StatePlayerRepository;
 
 public class CityCommand extends AbstractCommand {
+    CityRepository cityRepository = new CityRepository();
+    StatePlayerRepository playerRepository = new StatePlayerRepository(new StatePlayer());
     public CityCommand() {
         super("city");
     }
-
-    CityRepository cityRepository = new CityRepository();
-    StatePlayerRepository playerRepository = new StatePlayerRepository(new StatePlayer());
 
     @Override
     public void execute(CommandSender sender, String[] args) {
@@ -31,7 +32,7 @@ public class CityCommand extends AbstractCommand {
                 destroy(player, args);
                 break;
             case "bank":
-                bank();
+                bank(player, args);
                 break;
             case "name":
                 name();
@@ -63,8 +64,18 @@ public class CityCommand extends AbstractCommand {
 
     }
 
-    private void bank() {
-
+    private void bank(Player player, String[] args) {
+        if (args.length < 3) return;
+        String resource = args[1];
+        String count = args[2];
+        switch (args[1]) {
+            case "withdraw":
+                Bukkit.getPluginManager().callEvent(new CityWithdrawEvent(player, resource, count));
+                break;
+            case "deposit":
+                Bukkit.getPluginManager().callEvent(new CityDepositEvent());
+                break;
+        }
     }
 
     private void name() {

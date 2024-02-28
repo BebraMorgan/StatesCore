@@ -11,14 +11,12 @@ import ru.calvian.statescore.repositories.CityRepository;
 import ru.calvian.statescore.repositories.StatePlayerRepository;
 
 public class StatePLayerCommand extends AbstractCommand {
+    private static final String DESCRIPTION = "usage: /player city <join/leave/decline>";
+    StatePlayerRepository playerRepository = new StatePlayerRepository(new StatePlayer());
+    CityRepository cityRepository = new CityRepository();
     public StatePLayerCommand() {
         super("player");
     }
-
-    private static final String DESCRIPTION = "usage: /player city <join/leave/decline>";
-
-    StatePlayerRepository playerRepository = new StatePlayerRepository(new StatePlayer());
-    CityRepository cityRepository = new CityRepository();
 
     @Override
     public void execute(CommandSender commandSender, String[] args) {
