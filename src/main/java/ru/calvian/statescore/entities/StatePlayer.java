@@ -1,7 +1,9 @@
 package ru.calvian.statescore.entities;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import ru.calvian.statescore.entities.dictionaries.DictPlayerRoles;
 
 import javax.persistence.*;
 
@@ -9,11 +11,14 @@ import javax.persistence.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "downy_players")
+@Table(name = "state_players")
 public class StatePlayer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @ManyToOne
+    private DictPlayerRoles role;
 
     private String nick;
 
@@ -22,8 +27,8 @@ public class StatePlayer {
     private int confirmed;
 
     @ManyToOne
-    @JoinColumn(name = "country", referencedColumnName = "id")
-    private Country country;
+    @JoinColumn(name = "state", referencedColumnName = "id")
+    private State state;
 
     @ManyToOne
     @JoinColumn(name = "city", referencedColumnName = "id")

@@ -2,3 +2,5 @@ name: StatesCore
 version: '${project.version}'
 main: ru.calvian.statescore.StatesCore
 api-version: '1.19'
+commands:
+  player:

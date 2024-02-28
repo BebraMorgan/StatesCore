@@ -20,6 +20,9 @@ public class City {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @ManyToOne
+    private Balance balance;
     @Column(name = "name")
     private String name;
     @Column(name = "DELETED")
@@ -28,8 +31,8 @@ public class City {
     @JoinColumn(name = "mayor", referencedColumnName = "id")
     private StatePlayer mayor;
     @ManyToOne
-    @JoinColumn(name = "country", referencedColumnName = "id")
-    private Country country;
+    @JoinColumn(name = "state", referencedColumnName = "id")
+    private State state;
     @OneToMany(mappedBy = "city")
     private List<StatePlayer> players = new ArrayList<>();
     @Column(name = "x")

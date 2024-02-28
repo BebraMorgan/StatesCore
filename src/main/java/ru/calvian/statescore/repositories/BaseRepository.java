@@ -2,26 +2,24 @@ package ru.calvian.statescore.repositories;
 
 import ru.calvian.statescore.StatesCore;
 
+import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-
-import javax.persistence.EntityManager;
 import java.util.Collections;
 import java.util.List;
 
 abstract public class BaseRepository<T> {
 
+    private static final EntityManager entityManager = StatesCore.getInstance().getEntityManager();
     private final T model;
+
 
     public BaseRepository(T model) {
         this.model = model;
     }
-
-
-    private static final EntityManager entityManager = StatesCore.getInstance().getEntityManager();
 
     public void insert(T entity) {
         EntityTransaction transaction = entityManager.getTransaction();
@@ -81,6 +79,7 @@ abstract public class BaseRepository<T> {
             return null;
         }
     }
+
     public List<T> all() {
         try {
             Class<T> entityClass = getModelClass();
