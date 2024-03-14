@@ -11,6 +11,6 @@ public class CityRepository extends BaseRepository<City> {
     }
 
     public List<City> findByName(String name) {
-        return (List<City>) StatesCore.getInstance().getEntityManager().createQuery("SELECT p FROM City p WHERE name = '" + name + "'").getResultList();
+        return (List<City>) StatesCore.entityManager.createQuery("SELECT p FROM City p WHERE name = '" + name + "'").getResultList();
     }
 }

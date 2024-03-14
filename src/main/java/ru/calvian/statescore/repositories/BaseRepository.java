@@ -13,7 +13,7 @@ import java.util.List;
 
 abstract public class BaseRepository<T> {
 
-    private static final EntityManager entityManager = StatesCore.getInstance().getEntityManager();
+    private static final EntityManager entityManager = StatesCore.entityManager;
     private final T model;
 
 

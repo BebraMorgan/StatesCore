@@ -9,7 +9,7 @@ import ru.calvian.statescore.StatesCore;
 
 public abstract class AbstractCommand implements CommandExecutor {
     public AbstractCommand(String command) {
-        PluginCommand pluginCommand = StatesCore.getInstance().getCommand(command);
+        PluginCommand pluginCommand = StatesCore.instance.getCommand(command);
         if (pluginCommand != null) {
             pluginCommand.setExecutor(this);
         }

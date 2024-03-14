@@ -4,3 +4,10 @@ main: ru.calvian.statescore.StatesCore
 api-version: '1.19'
 commands:
   player:
+    description: Player command
+  city:
+    description: City command
+  state:
+    description: State command
+  alliance:
+    description: Alliance command

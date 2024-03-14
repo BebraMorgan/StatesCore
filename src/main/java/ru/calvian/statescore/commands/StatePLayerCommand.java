@@ -3,47 +3,47 @@ package ru.calvian.statescore.commands;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import ru.calvian.statescore.entities.City;
-import ru.calvian.statescore.entities.StatePlayer;
 import ru.calvian.statescore.events.stateplayer.PlayerCityJoinEvent;
 import ru.calvian.statescore.events.stateplayer.PlayerCityLeaveEvent;
-import ru.calvian.statescore.repositories.CityRepository;
-import ru.calvian.statescore.repositories.StatePlayerRepository;
 
 public class StatePLayerCommand extends AbstractCommand {
-    private static final String DESCRIPTION = "usage: /player city <join/leave/decline>";
-    StatePlayerRepository playerRepository = new StatePlayerRepository(new StatePlayer());
-    CityRepository cityRepository = new CityRepository();
     public StatePLayerCommand() {
         super("player");
     }
 
     @Override
     public void execute(CommandSender commandSender, String[] args) {
-        if (!(commandSender instanceof Player)) return;
-        StatePlayer sender = playerRepository.findByNick(commandSender.getName()).get(0);
-        if (args.length < 1) {
-            commandSender.sendMessage(DESCRIPTION);
+        if (!(commandSender instanceof Player player)) {
+            commandSender.sendMessage("Эту команду могут использовать только игроки.");
             return;
         }
+
+        if (args.length < 1) {
+            commandSender.sendMessage("Использование: /player <действие>");
+            return;
+        }
+
         switch (args[0]) {
             case "join":
-                join(sender, args);
+                join(player, args);
                 break;
             case "leave":
-                leave(sender);
+                leave(player);
                 break;
+            default:
+                commandSender.sendMessage("Неверное действие. Доступные действия: join, leave");
         }
     }
 
-    private void join(StatePlayer sender, String[] args) {
-        if (args.length < 2) return;
-        City city = cityRepository.findByName(args[2]).get(0);
-        if (city == null) return;
-        Bukkit.getPluginManager().callEvent(new PlayerCityJoinEvent(city, sender));
+    private void join(Player player, String[] args) {
+        if (args.length < 2) {
+            player.sendMessage("Использование: /city join <город>");
+            return;
+        }
+        Bukkit.getPluginManager().callEvent(new PlayerCityJoinEvent(args[1], player));
     }
 
-    private void leave(StatePlayer sender) {
+    private void leave(Player sender) {
         Bukkit.getPluginManager().callEvent(new PlayerCityLeaveEvent(sender));
     }
 }

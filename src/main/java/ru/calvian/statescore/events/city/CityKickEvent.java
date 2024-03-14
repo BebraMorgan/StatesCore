@@ -1,20 +1,19 @@
 package ru.calvian.statescore.events.city;
 
+
 import lombok.Getter;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Cancellable;
 import ru.calvian.statescore.events.AbstractEvent;
 
 @Getter
-public class CityWithdrawEvent extends AbstractEvent implements Cancellable {
-    private final Player player;
-    private final String resource;
-    private final String count;
+public class CityKickEvent extends AbstractEvent implements Cancellable {
+    private final Player sender;
+    private final String receiver;
 
-    public CityWithdrawEvent(Player player, String resource, String count) {
-        this.player = player;
-        this.resource = resource;
-        this.count = count;
+    public CityKickEvent(String receiver, Player sender) {
+        this.sender = sender;
+        this.receiver = receiver;
     }
 
     @Override

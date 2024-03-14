@@ -4,34 +4,27 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "states")
-public class State {
+@Where(clause = "DELETED = 0")
+@Table(name = "city_invites")
+public class CityInvite {
     @Id
     @Column(name = "id", columnDefinition = "BIGINT UNSIGNED")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name = "name")
-    private String name;
-
-    @Column(name = "ideology")
-    private String ideology;
 
     @ManyToOne
-    private Balance balance;
+    private City city;
 
     @ManyToOne
-    @JoinColumn(name = "alliance_id", referencedColumnName = "id")
-    private Alliance alliance;
+    private StatePlayer player;
 
-    @OneToMany(mappedBy = "state")
-    private List<City> cities;
 }

@@ -2,27 +2,16 @@ package ru.calvian.statescore.events.stateplayer;
 
 
 import lombok.Getter;
-import org.bukkit.event.Event;
-import org.bukkit.event.HandlerList;
-import org.jetbrains.annotations.NotNull;
-import ru.calvian.statescore.entities.City;
-import ru.calvian.statescore.entities.StatePlayer;
+import org.bukkit.entity.Player;
+import ru.calvian.statescore.events.AbstractEvent;
 
 @Getter
-public class PlayerCityJoinEvent extends Event {
+public class PlayerCityJoinEvent extends AbstractEvent {
+    private final Player player;
+    private final String cityName;
 
-    private static final HandlerList HANDLERS = new HandlerList();
-    private final StatePlayer player;
-    @Getter
-    private final City city;
-
-    public PlayerCityJoinEvent(City city, StatePlayer player) {
+    public PlayerCityJoinEvent(String cityName, Player player) {
         this.player = player;
-        this.city = city;
-    }
-
-    @Override
-    public @NotNull HandlerList getHandlers() {
-        return HANDLERS;
+        this.cityName = cityName;
     }
 }

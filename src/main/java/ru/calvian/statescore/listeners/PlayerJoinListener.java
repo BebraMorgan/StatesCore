@@ -4,6 +4,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
+import ru.calvian.statescore.entities.Balance;
 import ru.calvian.statescore.entities.StatePlayer;
 import ru.calvian.statescore.entities.dictionaries.DictPlayerRoles;
 import ru.calvian.statescore.repositories.DictPlayerRolesRepository;
@@ -14,7 +15,7 @@ import java.util.List;
 public class PlayerJoinListener implements Listener {
     @EventHandler
     public void onJoin(PlayerJoinEvent event) {
-        StatePlayerRepository repository = new StatePlayerRepository(new StatePlayer());
+        StatePlayerRepository repository = new StatePlayerRepository();
         DictPlayerRolesRepository dictPlayerRolesRepository = new DictPlayerRolesRepository();
         DictPlayerRoles role = dictPlayerRolesRepository.find(1);
         Player player = event.getPlayer();
@@ -23,16 +24,8 @@ public class PlayerJoinListener implements Listener {
             StatePlayer statePlayer = new StatePlayer();
             statePlayer.setNick(player.getName());
             statePlayer.setRole(role);
+            statePlayer.setBalance(new Balance());
             repository.insert(statePlayer);
-        } else {
-            StatePlayer statePlayer = playerList.get(0);
-            statePlayer.setNick(player.getName());
-            if (statePlayer.getRole() == null) {
-                statePlayer.setRole(role);
-            } else if (statePlayer.getRole() == role) {
-                statePlayer.setRole(role);
-            }
-            repository.update(statePlayer);
         }
     }
 }

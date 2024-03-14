@@ -11,6 +11,6 @@ public class DictPlayerRolesRepository extends BaseRepository<DictPlayerRoles> {
     }
 
     public List<DictPlayerRoles> findByDescription(String nick) {
-        return (List<DictPlayerRoles>) StatesCore.getInstance().getEntityManager().createQuery("SELECT p FROM DictPlayerRoles p WHERE description = '" + nick + "'").getResultList();
+        return (List<DictPlayerRoles>) StatesCore.entityManager.createQuery("SELECT p FROM DictPlayerRoles p WHERE description = '" + nick + "'").getResultList();
     }
 }

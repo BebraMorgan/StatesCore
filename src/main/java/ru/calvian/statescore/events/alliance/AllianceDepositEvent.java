@@ -1,4 +1,4 @@
-package ru.calvian.statescore.events.city;
+package ru.calvian.statescore.events.alliance;
 
 import lombok.Getter;
 import org.bukkit.entity.Player;
@@ -6,12 +6,13 @@ import org.bukkit.event.Cancellable;
 import ru.calvian.statescore.events.AbstractEvent;
 
 @Getter
-public class CityWithdrawEvent extends AbstractEvent implements Cancellable {
+public class AllianceDepositEvent extends AbstractEvent implements Cancellable {
+
     private final Player player;
     private final String resource;
     private final String count;
 
-    public CityWithdrawEvent(Player player, String resource, String count) {
+    public AllianceDepositEvent(Player player, String resource, String count) {
         this.player = player;
         this.resource = resource;
         this.count = count;

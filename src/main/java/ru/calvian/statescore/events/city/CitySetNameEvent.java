@@ -6,15 +6,14 @@ import org.bukkit.event.Cancellable;
 import ru.calvian.statescore.events.AbstractEvent;
 
 @Getter
-public class CityWithdrawEvent extends AbstractEvent implements Cancellable {
+public class CitySetNameEvent extends AbstractEvent implements Cancellable {
+    private final String name;
     private final Player player;
-    private final String resource;
-    private final String count;
 
-    public CityWithdrawEvent(Player player, String resource, String count) {
+    public CitySetNameEvent(String name, Player player) {
         this.player = player;
-        this.resource = resource;
-        this.count = count;
+        this.name = name;
+
     }
 
     @Override
